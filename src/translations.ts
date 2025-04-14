@@ -1,0 +1,176 @@
+export const translations = {
+  en: {
+    hero: {
+      title: "Visual Thinking Strategy",
+      subtitle: "Group Lessons",
+      description: "Enhance children's language development through engaging group discussions about art."
+    },
+    vts: {
+      title: "What is Visual Thinking Strategy?",
+      description: "Visual Thinking Strategy (VTS) is an educational method that uses art to develop critical thinking and communication skills. Through carefully facilitated discussions about visual art, students learn to observe, analyze, and articulate their thoughts.",
+      exampleQuestions: "Example VTS Questions:",
+      questions: [
+        "What's going on in this picture?",
+        "What do you see that makes you say that?",
+        "What more can we find?"
+      ],
+      facilitatorRole: "Facilitator's Role:",
+      facilitatorActions: [
+        "Paraphrase comments neutrally",
+        "Point to observations",
+        "Link related comments"
+      ],
+      artworkTitle: "A Sunday Afternoon on the Island of La Grande Jatte",
+      artworkArtist: "Georges Seurat",
+      artworkYear: "1884",
+      classPictureDescription: "Add your VTS session photo here"
+    },
+    benefits: {
+      title: "Benefits for Children",
+      items: [
+        {
+          title: "Language Development",
+          description: "Enhances vocabulary, descriptive language, and communication skills through structured discussions."
+        },
+        {
+          title: "Critical Thinking",
+          description: "Develops observation skills, evidence-based reasoning, and the ability to consider multiple perspectives."
+        },
+        {
+          title: "Social Skills",
+          description: "Fosters collaboration, active listening, and respectful discussion in a group setting."
+        }
+      ]
+    },
+    teachingApproach: {
+      title: "Our Teaching Approach",
+      description: "Our VTS sessions are led by experienced facilitators who create a safe and engaging environment for children to explore art and develop their thinking skills. Each session is carefully structured to:",
+      steps: [
+        "Encourage careful observation and detailed description",
+        "Support evidence-based reasoning",
+        "Foster respectful discussion and multiple perspectives",
+        "Build confidence in expressing ideas"
+      ]
+    },
+    teacher: {
+      title: "Meet Your Teacher",
+      name: "Eunjung Choi",
+      bio: "A dedicated educator with extensive experience in Visual Thinking Strategy and art education.",
+      qualificationsTitle: "Professional Experience",
+      qualifications: [
+        "Over 15 years of experience in art education and VTS facilitation",
+        "Certified VTS Trainer with advanced certification from the Visual Thinking Strategies organization",
+        "Doctoral degree in Art Education from Penn State University",
+        "Former Art Education Director at Seoul Arts Center",
+        "Published researcher in the field of visual literacy and art education",
+        "International conference speaker on VTS implementation and best practices"
+      ]
+    },
+    pilot: {
+      title: "Pilot Lesson Now Accepting Applications!",
+      description: "Join our exclusive pilot VTS session on May 16th in Vienna, Virginia. Limited slots available - don't miss this opportunity to experience the transformative power of Visual Thinking Strategy!",
+      cta: "Please use the form below to apply for the pilot session."
+    },
+    contact: {
+      title: "Get in Touch",
+      form: {
+        name: 'Name',
+        email: 'Email',
+        phone: 'Phone',
+        message: 'Message',
+        submit: 'Submit',
+        namePlaceholder: 'Enter your name',
+        emailPlaceholder: 'Enter your email',
+        phonePlaceholder: 'Enter your phone number',
+        messagePlaceholder: 'Enter your message'
+      }
+    }
+  },
+  ko: {
+    hero: {
+      title: "시각적 사고 전략",
+      subtitle: "그룹 레슨",
+      description: "예술에 대한 흥미로운 그룹 토론을 통해 어린이의 언어 발달을 향상시킵니다."
+    },
+    vts: {
+      title: "시각적 사고 전략이란?",
+      description: "시각적 사고 전략(VTS)은 예술을 활용하여 비판적 사고와 의사소통 능력을 개발하는 교육 방법입니다. 시각 예술에 대한 신중하게 진행되는 토론을 통해 학생들은 관찰, 분석 및 생각을 명확하게 표현하는 방법을 배웁니다.",
+      exampleQuestions: "VTS 예시 질문:",
+      questions: [
+        "이 그림에서 무슨 일이 일어나고 있나요?",
+        "무엇을 보고 그렇게 말씀하시나요?",
+        "더 찾아볼 수 있는 것이 있을까요?"
+      ],
+      facilitatorRole: "교사의 역할:",
+      facilitatorActions: [
+        "중립적으로 의견을 다시 말하기",
+        "관찰을 지적하기",
+        "관련 의견을 연결하기"
+      ],
+      artworkTitle: "라 그랑드 자트 섬의 일요일 오후",
+      artworkArtist: "조르주 쇠라",
+      artworkYear: "1884년",
+      classPictureDescription: "VTS 수업 사진을 여기에 추가하세요"
+    },
+    benefits: {
+      title: "어린이를 위한 혜택",
+      items: [
+        {
+          title: "언어 발달",
+          description: "구조화된 토론을 통해 어휘, 설명적 언어 및 의사소통 능력을 향상시킵니다."
+        },
+        {
+          title: "비판적 사고",
+          description: "관찰 능력, 증거 기반 추론 및 다양한 관점을 고려하는 능력을 개발합니다."
+        },
+        {
+          title: "사회적 기술",
+          description: "그룹 환경에서 협력, 적극적인 경청 및 존중하는 토론을 촉진합니다."
+        }
+      ]
+    },
+    teachingApproach: {
+      title: "우리의 교육 접근 방식",
+      description: "우리의 VTS 수업은 경험이 풍부한 교사들이 진행하며, 어린이들이 예술을 탐구하고 사고 능력을 개발할 수 있는 안전하고 매력적인 환경을 조성합니다. 각 수업은 다음과 같이 신중하게 구성됩니다:",
+      steps: [
+        "신중한 관찰과 상세한 설명을 장려하기",
+        "증거 기반 추론 지원하기",
+        "존중하는 토론과 다양한 관점을 촉진하기",
+        "아이디어 표현에 대한 자신감 키우기"
+      ]
+    },
+    teacher: {
+      title: "선생님 소개",
+      name: "최은정",
+      bio: "시각적 사고 전략과 미술 교육 분야에서 풍부한 경험을 가진 헌신적인 교육자입니다.",
+      qualificationsTitle: "전문 경력",
+      qualifications: [
+        "미술 교육 및 VTS 진행 경력 15년 이상",
+        "Visual Thinking Strategies 기관의 고급 인증을 받은 VTS 트레이너",
+        "펜실베이니아 주립대학교 미술교육 박사",
+        "서울예술의전당 전 미술교육 디렉터",
+        "시각적 문해력 및 미술 교육 분야의 연구 논문 발표",
+        "VTS 구현 및 모범 사례에 관한 국제 컨퍼런스 연사"
+      ]
+    },
+    pilot: {
+      title: "파일럿 수업 신청 접수 중!",
+      description: "5월 16일 버지니아 주 비엔나에서 열리는 독점 VTS 파일럿 수업에 참여하세요. 제한된 자리만 마련되어 있습니다 - 시각적 사고 전략의 변화의 힘을 경험하는 이 기회를 놓치지 마세요!",
+      cta: "파일럿 수업 신청을 위해 아래 양식을 사용하세요."
+    },
+    contact: {
+      title: "연락하기",
+      form: {
+        name: '이름',
+        email: '이메일',
+        phone: '전화번호',
+        message: '메시지',
+        submit: '제출하기',
+        namePlaceholder: '이름을 입력하세요',
+        emailPlaceholder: '이메일을 입력하세요',
+        phonePlaceholder: '전화번호를 입력하세요',
+        messagePlaceholder: '메시지를 입력하세요'
+      }
+    }
+  }
+}; 
