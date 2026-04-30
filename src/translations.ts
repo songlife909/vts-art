@@ -41,8 +41,8 @@ export const translations = {
           description: "Fosters collaboration, active listening, and respectful discussion in a group setting."
         },
         {
-          title: "Art Appreciation",
-          description: "Introduces children to real masterpieces — the artist, the story behind the work, and the cultural context — building visual literacy along the way."
+          title: "Cultural Enrichment (Bonus)",
+          description: "After each VTS discussion, we share a light note about the artist or the work\u2019s background \u2014 purely as a bonus. The children\u2019s own observations and interpretations always come first."
         }
       ]
     },
@@ -148,8 +148,8 @@ export const translations = {
           description: "그룹 환경에서 협력, 적극적인 경청 및 존중하는 토론을 촉진합니다."
         },
         {
-          title: "예술 감상",
-          description: "실제 명작을 함께 보며 작가, 작품에 얽힌 이야기, 그리고 시대적 배경까지 자연스럽게 익혀 시각적 문해력을 키웁니다."
+          title: "예술 교양 (보너스)",
+          description: "VTS 토론이 끝난 뒤, 작가나 작품의 배경에 대해 가볍게 한 마디를 곁들입니다. 어디까지나 보너스이며, 아이들 스스로의 관찰과 해석이 언제나 우선입니다."
         }
       ]
     },
