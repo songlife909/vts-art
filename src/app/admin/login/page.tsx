@@ -57,8 +57,8 @@ export default function AdminLoginPage() {
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Admin Login</h1>
         <p className="text-sm text-gray-600 mb-6">
           {step === 'email'
-            ? 'Enter your admin email. We\u2019ll send a 6-digit login code.'
-            : `We sent a 6-digit code to ${email}. Check your inbox.`}
+            ? 'Enter your admin email. We\u2019ll send a login code.'
+            : `We sent a code to ${email}. Check your inbox.`}
         </p>
 
         {step === 'email' ? (
@@ -93,7 +93,7 @@ export default function AdminLoginPage() {
           <form onSubmit={verifyCode} className="space-y-5">
             <div>
               <label htmlFor="code" className="block text-sm font-medium text-gray-700">
-                6-digit code
+                Login code
               </label>
               <input
                 id="code"
@@ -101,8 +101,8 @@ export default function AdminLoginPage() {
                 type="text"
                 inputMode="numeric"
                 autoComplete="one-time-code"
-                pattern="[0-9]{6}"
-                maxLength={6}
+                pattern="[0-9]{6,10}"
+                maxLength={10}
                 value={code}
                 onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
                 required
@@ -115,7 +115,7 @@ export default function AdminLoginPage() {
             )}
             <button
               type="submit"
-              disabled={status === 'verifying' || code.length !== 6}
+              disabled={status === 'verifying' || code.length < 6}
               className="w-full bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700 disabled:opacity-50"
             >
               {status === 'verifying' ? 'Verifying\u2026' : 'Verify & sign in'}
