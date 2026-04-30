@@ -72,17 +72,33 @@ export const translations = {
       cta: "Please use the form below to apply for the pilot session."
     },
     contact: {
-      title: "Get in Touch",
+      title: "Apply for the Pilot",
       form: {
+        childName: 'Child Name',
+        childAge: 'Child Age',
+        parentName: 'Parent Name',
         name: 'Name',
         email: 'Email',
         phone: 'Phone',
-        message: 'Message',
-        submit: 'Submit',
+        preferredSession: 'Preferred Time',
+        sessionOption10: '10:00 AM',
+        sessionOption11: '11:00 AM',
+        sessionOptionEither: 'Either time works',
+        message: 'Message (optional)',
+        consent: 'I agree to be contacted about this pilot session.',
+        submit: 'Apply',
+        submitting: 'Submitting...',
         namePlaceholder: 'Enter your name',
+        childNamePlaceholder: "Enter your child's name",
+        childAgePlaceholder: 'Age',
+        parentNamePlaceholder: "Enter parent's name",
         emailPlaceholder: 'Enter your email',
         phonePlaceholder: 'Enter your phone number',
-        messagePlaceholder: 'Enter your message'
+        messagePlaceholder: 'Anything else we should know? (optional)',
+        successTitle: 'Application received!',
+        successBody: "Thanks for applying. We'll email you with next steps shortly.",
+        errorTitle: 'Something went wrong',
+        errorBody: 'Please try again in a moment.'
       }
     }
   },
@@ -159,17 +175,33 @@ export const translations = {
       cta: "파일럿 수업 신청을 위해 아래 양식을 사용하세요."
     },
     contact: {
-      title: "연락하기",
+      title: "파일럿 수업 신청",
       form: {
+        childName: '자녀 이름',
+        childAge: '자녀 나이',
+        parentName: '학부모 이름',
         name: '이름',
         email: '이메일',
         phone: '전화번호',
-        message: '메시지',
-        submit: '제출하기',
+        preferredSession: '희망 시간',
+        sessionOption10: '오전 10시',
+        sessionOption11: '오전 11시',
+        sessionOptionEither: '둘 다 가능',
+        message: '메시지 (선택)',
+        consent: '파일럿 수업 관련 연락 받는 것에 동의합니다.',
+        submit: '신청하기',
+        submitting: '신청 중...',
         namePlaceholder: '이름을 입력하세요',
+        childNamePlaceholder: '자녀 이름을 입력하세요',
+        childAgePlaceholder: '나이',
+        parentNamePlaceholder: '학부모 이름을 입력하세요',
         emailPlaceholder: '이메일을 입력하세요',
         phonePlaceholder: '전화번호를 입력하세요',
-        messagePlaceholder: '메시지를 입력하세요'
+        messagePlaceholder: '더 알려주실 내용이 있으면 적어주세요 (선택)',
+        successTitle: '신청이 접수되었습니다!',
+        successBody: '신청해 주셔서 감사합니다. 곧 다음 안내 이메일을 보내드릴게요.',
+        errorTitle: '오류가 발생했습니다',
+        errorBody: '잠시 후 다시 시도해주세요.'
       }
     }
   }

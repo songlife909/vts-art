@@ -3,55 +3,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/translations';
 import Image from "next/image";
-import ContactForm from "@/components/ContactForm";
-import { useState } from 'react';
+import ApplicationForm from "@/components/ApplicationForm";
 
 export default function Home() {
   const { language } = useLanguage();
   const t = translations[language];
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
-
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <div className="min-h-screen">
@@ -259,87 +215,7 @@ export default function Home() {
             <div className="w-24 h-1 bg-secondary-500 mx-auto rounded-full" />
           </div>
           <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  {t.contact.form.name}
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
-                  placeholder={t.contact.form.namePlaceholder}
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                  {t.contact.form.email}
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
-                  placeholder={t.contact.form.emailPlaceholder}
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                  {t.contact.form.phone}
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
-                  placeholder={t.contact.form.phonePlaceholder}
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">
-                  {t.contact.form.message}
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500"
-                  placeholder={t.contact.form.messagePlaceholder}
-                />
-              </div>
-              {submitStatus === 'success' && (
-                <div className="p-4 bg-green-50 text-green-800 rounded-md">
-                  {language === 'en' ? 'Thank you for your message! We will get back to you soon.' : '메시지를 보내주셔서 감사합니다! 곧 연락드리겠습니다.'}
-                </div>
-              )}
-              {submitStatus === 'error' && (
-                <div className="p-4 bg-red-50 text-red-800 rounded-md">
-                  {language === 'en' ? 'Something went wrong. Please try again.' : '오류가 발생했습니다. 다시 시도해주세요.'}
-                </div>
-              )}
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-primary-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-primary-700 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting 
-                  ? (language === 'en' ? 'Sending...' : '전송 중...')
-                  : t.contact.form.submit}
-              </button>
-            </form>
+            <ApplicationForm />
           </div>
         </div>
       </section>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import LanguageToggle from "@/components/LanguageToggle";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +27,14 @@ export default function RootLayout({
               <div className="absolute inset-0 bg-gradient-to-br from-white via-primary-50/50 to-secondary-50/50 backdrop-blur-sm" />
               <div className="absolute inset-0 bg-[url('/images/backgrounds/pattern.svg')] opacity-[0.03]" />
             </div>
-            <div className="fixed top-4 right-4 z-50">
+            <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
+              <Link
+                href="/admin"
+                className="bg-white/90 backdrop-blur text-gray-700 hover:text-primary-700 hover:bg-white px-3 py-2 rounded-full text-xs font-medium border border-gray-200 shadow-sm transition"
+                title="Admin"
+              >
+                Admin
+              </Link>
               <LanguageToggle />
             </div>
             <main className="min-h-screen">{children}</main>
