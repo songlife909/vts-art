@@ -39,6 +39,10 @@ export const translations = {
         {
           title: "Social Skills",
           description: "Fosters collaboration, active listening, and respectful discussion in a group setting."
+        },
+        {
+          title: "Art Appreciation",
+          description: "Introduces children to real masterpieces — the artist, the story behind the work, and the cultural context — building visual literacy along the way."
         }
       ]
     },
@@ -142,6 +146,10 @@ export const translations = {
         {
           title: "사회적 기술",
           description: "그룹 환경에서 협력, 적극적인 경청 및 존중하는 토론을 촉진합니다."
+        },
+        {
+          title: "예술 감상",
+          description: "실제 명작을 함께 보며 작가, 작품에 얽힌 이야기, 그리고 시대적 배경까지 자연스럽게 익혀 시각적 문해력을 키웁니다."
         }
       ]
     },

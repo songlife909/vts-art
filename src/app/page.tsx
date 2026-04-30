@@ -105,7 +105,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.benefits.title}</h2>
             <div className="w-24 h-1 bg-secondary-500 mx-auto rounded-full" />
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {t.benefits.items.map((item, index) => (
               <div key={index} className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="text-primary-600 mb-4">
