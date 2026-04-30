@@ -1,29 +1,53 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { getBrowserSupabase } from '@/lib/supabase/browser';
 
 export default function AdminLoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [code, setCode] = useState('');
+  const [step, setStep] = useState<'email' | 'code'>('email');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'verifying' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const sendCode = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
     setErrorMessage('');
 
     const supabase = getBrowserSupabase();
-    const redirectTo = `${window.location.origin}/admin/auth/callback`;
     const { error } = await supabase.auth.signInWithOtp({
       email: email.trim().toLowerCase(),
-      options: { emailRedirectTo: redirectTo },
+      options: { shouldCreateUser: true },
     });
     if (error) {
       setStatus('error');
       setErrorMessage(error.message);
     } else {
-      setStatus('sent');
+      setStatus('idle');
+      setStep('code');
+    }
+  };
+
+  const verifyCode = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('verifying');
+    setErrorMessage('');
+
+    const supabase = getBrowserSupabase();
+    const { error } = await supabase.auth.verifyOtp({
+      email: email.trim().toLowerCase(),
+      token: code.trim(),
+      type: 'email',
+    });
+    if (error) {
+      setStatus('error');
+      setErrorMessage(error.message);
+    } else {
+      router.push('/admin');
+      router.refresh();
     }
   };
 
@@ -32,18 +56,13 @@ export default function AdminLoginPage() {
       <div className="max-w-md w-full bg-white shadow-xl rounded-3xl p-8 md:p-10">
         <h1 className="text-2xl font-bold text-gray-900 mb-2">Admin Login</h1>
         <p className="text-sm text-gray-600 mb-6">
-          Enter your admin email. We&rsquo;ll send a one-time login link.
+          {step === 'email'
+            ? 'Enter your admin email. We\u2019ll send a 6-digit login code.'
+            : `We sent a 6-digit code to ${email}. Check your inbox.`}
         </p>
 
-        {status === 'sent' ? (
-          <div className="p-4 bg-green-50 text-green-800 rounded-md">
-            <p className="font-medium">Check your inbox</p>
-            <p className="text-sm mt-1">
-              We sent a magic link to <strong>{email}</strong>. Click it to sign in.
-            </p>
-          </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="space-y-5">
+        {step === 'email' ? (
+          <form onSubmit={sendCode} className="space-y-5">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email
@@ -67,7 +86,51 @@ export default function AdminLoginPage() {
               disabled={status === 'sending'}
               className="w-full bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700 disabled:opacity-50"
             >
-              {status === 'sending' ? 'Sending…' : 'Send magic link'}
+              {status === 'sending' ? 'Sending\u2026' : 'Send code'}
+            </button>
+          </form>
+        ) : (
+          <form onSubmit={verifyCode} className="space-y-5">
+            <div>
+              <label htmlFor="code" className="block text-sm font-medium text-gray-700">
+                6-digit code
+              </label>
+              <input
+                id="code"
+                name="code"
+                type="text"
+                inputMode="numeric"
+                autoComplete="one-time-code"
+                pattern="[0-9]{6}"
+                maxLength={6}
+                value={code}
+                onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))}
+                required
+                placeholder="123456"
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 tracking-widest text-center text-xl font-mono"
+              />
+            </div>
+            {status === 'error' && (
+              <p className="text-sm text-red-700">{errorMessage}</p>
+            )}
+            <button
+              type="submit"
+              disabled={status === 'verifying' || code.length !== 6}
+              className="w-full bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700 disabled:opacity-50"
+            >
+              {status === 'verifying' ? 'Verifying\u2026' : 'Verify & sign in'}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                setStep('email');
+                setCode('');
+                setStatus('idle');
+                setErrorMessage('');
+              }}
+              className="block mx-auto text-sm text-gray-500 hover:text-gray-900"
+            >
+              Use a different email
             </button>
           </form>
         )}
