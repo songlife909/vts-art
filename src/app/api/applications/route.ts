@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getServiceSupabase } from '@/lib/supabase/server';
-import { getResend, EMAIL_FROM, ADMIN_NOTIFY_EMAILS } from '@/lib/email/resend';
+import { getResend, EMAIL_FROM } from '@/lib/email/resend';
 import {
   applicationReceivedEmail,
   adminNewApplicationEmail,
@@ -121,6 +121,11 @@ export async function POST(request: NextRequest) {
     };
 
     // ── Notify (email is best-effort; do not fail the request if it fails) ──
+    const { data: adminRows } = await supabase
+      .from('admins')
+      .select('email');
+    const adminEmails = (adminRows ?? []).map((r) => r.email).filter(Boolean);
+
     const resend = getResend();
     const applicantEmail = applicationReceivedEmail(data);
     const adminEmail = adminNewApplicationEmail(data, inserted.id);
@@ -129,7 +134,7 @@ export async function POST(request: NextRequest) {
       .send({
         from: EMAIL_FROM,
         to: email,
-        replyTo: ADMIN_NOTIFY_EMAILS[0] || undefined,
+        replyTo: adminEmails[0] || undefined,
         subject: applicantEmail.subject,
         html: applicantEmail.html,
         text: applicantEmail.text,
@@ -137,11 +142,11 @@ export async function POST(request: NextRequest) {
       .catch((e) => console.error('[applications] applicant email failed', e));
 
     const sendAdmin =
-      ADMIN_NOTIFY_EMAILS.length > 0
+      adminEmails.length > 0
         ? resend.emails
             .send({
               from: EMAIL_FROM,
-              to: ADMIN_NOTIFY_EMAILS,
+              to: adminEmails,
               replyTo: email,
               subject: adminEmail.subject,
               html: adminEmail.html,

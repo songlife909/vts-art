@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { requireAdmin } from '@/lib/admin/guard';
 import { getServiceSupabase } from '@/lib/supabase/server';
-import { getResend, EMAIL_FROM, ADMIN_NOTIFY_EMAILS } from '@/lib/email/resend';
+import { getResend, EMAIL_FROM } from '@/lib/email/resend';
 import {
   assignmentConfirmedEmail,
   waitlistEmail,
@@ -78,11 +78,14 @@ export async function POST(req: NextRequest) {
     text = tpl.text;
   }
 
+  const { data: adminRows } = await sb.from('admins').select('email').limit(1);
+  const replyTo = adminRows?.[0]?.email || undefined;
+
   const resend = getResend();
   const sendResult = await resend.emails.send({
     from: EMAIL_FROM,
     to: applicant.email,
-    replyTo: ADMIN_NOTIFY_EMAILS[0] || undefined,
+    replyTo,
     subject,
     html,
     text,
