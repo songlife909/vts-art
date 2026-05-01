@@ -156,7 +156,7 @@ export default function Home() {
             <div className="w-24 h-1 bg-primary-500 mx-auto rounded-full" />
           </div>
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-100">
+            <div className="relative aspect-[3/4] w-full max-w-[25.2rem] mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-100">
               <Image
                 src="/images/teachers/eunjeong-choi.jpg"
                 alt="Eunjung Choi - VTS Teacher"
