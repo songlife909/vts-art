@@ -90,7 +90,7 @@ export default function AssignmentActions({
           {message.text}
         </div>
       )}
-      <div className="bg-white rounded-2xl shadow-sm p-6">
+      <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Class assignment</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {sessions.map((s) => {
@@ -136,7 +136,7 @@ export default function AssignmentActions({
         )}
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm p-6">
+      <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Status</h2>
         <div className="flex flex-wrap gap-2">
           {['new', 'waitlist', 'rejected', 'cancelled', 'confirmed'].map((s) => (
@@ -156,7 +156,7 @@ export default function AssignmentActions({
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm p-6">
+      <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-2">Notify applicant by email</h2>
         {notificationSentAt && (
           <p className="text-xs text-gray-500 mb-3">

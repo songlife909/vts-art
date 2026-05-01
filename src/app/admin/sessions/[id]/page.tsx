@@ -44,79 +44,125 @@ export default async function SessionDetailPage({
   }>;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <div>
         <Link href="/admin/sessions" className="text-sm text-gray-500 hover:text-gray-900">
           ← All sessions
         </Link>
-        <h1 className="text-3xl font-bold text-gray-900 mt-2">{session.start_time}</h1>
-        <p className="text-gray-600">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mt-2">{session.start_time}</h1>
+        <p className="text-gray-600 text-sm">
           {session.date} · {session.location} · capacity {session.capacity}
         </p>
       </div>
 
       <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-        <div className="px-6 py-4 border-b">
+        <div className="px-4 sm:px-6 py-4 border-b">
           <h2 className="font-semibold text-gray-900">
             Roster · {list.length}/{session.capacity}
           </h2>
         </div>
-        <table className="w-full">
-          <thead className="bg-gray-50 text-left text-xs uppercase tracking-wide text-gray-500">
-            <tr>
-              <th className="px-4 py-3">#</th>
-              <th className="px-4 py-3">Child</th>
-              <th className="px-4 py-3">Parent</th>
-              <th className="px-4 py-3">Contact</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">Notified</th>
-              <th className="px-4 py-3"></th>
-            </tr>
-          </thead>
-          <tbody className="divide-y">
-            {list.map((row, i) => {
-              const a = row.applicants;
-              if (!a) return null;
-              return (
-                <tr key={row.id}>
-                  <td className="px-4 py-3 text-sm text-gray-500">{i + 1}</td>
-                  <td className="px-4 py-3 text-sm font-medium">
-                    {a.child_name}
-                    {a.child_age && (
-                      <span className="ml-1 text-xs text-gray-500">({a.child_age})</span>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 text-sm">{a.parent_name}</td>
-                  <td className="px-4 py-3 text-sm">
-                    <div>{a.email}</div>
-                    <div className="text-xs text-gray-500">{a.phone}</div>
-                  </td>
-                  <td className="px-4 py-3 text-sm">{a.status}</td>
-                  <td className="px-4 py-3 text-xs text-gray-500">
-                    {row.notification_sent_at
-                      ? new Date(row.notification_sent_at).toLocaleString()
-                      : '—'}
-                  </td>
-                  <td className="px-4 py-3 text-sm text-right">
-                    <Link
-                      href={`/admin/applicants/${a.id}`}
-                      className="text-primary-600 hover:underline"
-                    >
-                      Open →
+
+        {list.length === 0 ? (
+          <div className="px-4 sm:px-6 py-12 text-center text-gray-500">
+            No assignments yet.
+          </div>
+        ) : (
+          <>
+            {/* Mobile cards */}
+            <ul className="md:hidden divide-y">
+              {list.map((row, i) => {
+                const a = row.applicants;
+                if (!a) return null;
+                return (
+                  <li key={row.id} className="p-4">
+                    <Link href={`/admin/applicants/${a.id}`} className="block">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <div className="text-xs text-gray-400">#{i + 1}</div>
+                          <div className="font-semibold text-gray-900 truncate">
+                            {a.child_name}
+                            {a.child_age && (
+                              <span className="ml-1 text-xs font-normal text-gray-500">
+                                ({a.child_age})
+                              </span>
+                            )}
+                          </div>
+                          <div className="text-sm text-gray-600 truncate">
+                            {a.parent_name}
+                          </div>
+                        </div>
+                        <span className="shrink-0 px-2 py-1 text-[11px] rounded-full bg-gray-100 text-gray-700">
+                          {a.status}
+                        </span>
+                      </div>
+                      <div className="mt-2 text-sm text-gray-700 truncate">{a.email}</div>
+                      <div className="text-xs text-gray-500">{a.phone}</div>
+                      <div className="mt-2 text-xs text-gray-500">
+                        Notified:{' '}
+                        {row.notification_sent_at
+                          ? new Date(row.notification_sent_at).toLocaleDateString()
+                          : '—'}
+                      </div>
                     </Link>
-                  </td>
-                </tr>
-              );
-            })}
-            {list.length === 0 && (
-              <tr>
-                <td colSpan={7} className="px-4 py-12 text-center text-gray-500">
-                  No assignments yet.
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Desktop table */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gray-50 text-left text-xs uppercase tracking-wide text-gray-500">
+                  <tr>
+                    <th className="px-4 py-3">#</th>
+                    <th className="px-4 py-3">Child</th>
+                    <th className="px-4 py-3">Parent</th>
+                    <th className="px-4 py-3">Contact</th>
+                    <th className="px-4 py-3">Status</th>
+                    <th className="px-4 py-3">Notified</th>
+                    <th className="px-4 py-3"></th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  {list.map((row, i) => {
+                    const a = row.applicants;
+                    if (!a) return null;
+                    return (
+                      <tr key={row.id}>
+                        <td className="px-4 py-3 text-sm text-gray-500">{i + 1}</td>
+                        <td className="px-4 py-3 text-sm font-medium">
+                          {a.child_name}
+                          {a.child_age && (
+                            <span className="ml-1 text-xs text-gray-500">({a.child_age})</span>
+                          )}
+                        </td>
+                        <td className="px-4 py-3 text-sm">{a.parent_name}</td>
+                        <td className="px-4 py-3 text-sm">
+                          <div>{a.email}</div>
+                          <div className="text-xs text-gray-500">{a.phone}</div>
+                        </td>
+                        <td className="px-4 py-3 text-sm">{a.status}</td>
+                        <td className="px-4 py-3 text-xs text-gray-500">
+                          {row.notification_sent_at
+                            ? new Date(row.notification_sent_at).toLocaleString()
+                            : '—'}
+                        </td>
+                        <td className="px-4 py-3 text-sm text-right">
+                          <Link
+                            href={`/admin/applicants/${a.id}`}
+                            className="text-primary-600 hover:underline"
+                          >
+                            Open →
+                          </Link>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

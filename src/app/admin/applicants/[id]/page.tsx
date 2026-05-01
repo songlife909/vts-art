@@ -34,16 +34,16 @@ export default async function ApplicantDetailPage({
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
-        <Link href="/admin/applicants" className="text-sm text-gray-500 hover:text-gray-900">
+      <div className="flex items-center justify-between gap-3">
+        <Link href="/admin/applicants" className="text-sm text-gray-500 hover:text-gray-900 whitespace-nowrap">
           ← All applicants
         </Link>
-        <span className="text-xs text-gray-400">{applicant.id}</span>
+        <span className="text-xs text-gray-400 truncate hidden sm:inline">{applicant.id}</span>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-sm p-6 space-y-4">
-        <div className="flex items-baseline justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">
+      <div className="bg-white rounded-2xl shadow-sm p-4 sm:p-6 space-y-4">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 min-w-0 break-words">
             {applicant.child_name}
             {applicant.child_age && (
               <span className="ml-2 text-base font-normal text-gray-500">
@@ -51,7 +51,7 @@ export default async function ApplicantDetailPage({
               </span>
             )}
           </h1>
-          <span className="px-3 py-1 text-xs rounded-full bg-gray-100 text-gray-700">
+          <span className="shrink-0 px-3 py-1 text-xs rounded-full bg-gray-100 text-gray-700">
             {applicant.status}
           </span>
         </div>
