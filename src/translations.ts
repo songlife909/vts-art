@@ -23,7 +23,12 @@ export const translations = {
       artworkTitle: "A Sunday Afternoon on the Island of La Grande Jatte",
       artworkArtist: "Georges Seurat",
       artworkYear: "1884",
-      classPictureDescription: "Add your VTS session photo here"
+      heroPrompts: [
+        "What's going on in this picture?",
+        "What do you see that makes you say that?",
+        "What more can we find?"
+      ],
+      heroCaption: "The Starry Night \u2014 Vincent van Gogh, 1889"
     },
     benefits: {
       title: "Benefits for Children",
@@ -130,7 +135,12 @@ export const translations = {
       artworkTitle: "라 그랑드 자트 섬의 일요일 오후",
       artworkArtist: "조르주 쇠라",
       artworkYear: "1884년",
-      classPictureDescription: "VTS 수업 사진을 여기에 추가하세요"
+      heroPrompts: [
+        "이 그림에서 무슨 일이 일어나고 있나요?",
+        "어떤 것을 보고 그렇게 생각했나요?",
+        "또 무엇을 찾아볼 수 있을까요?"
+      ],
+      heroCaption: "별이 빛나는 밤 \u2014 빈센트 반 고흐, 1889"
     },
     benefits: {
       title: "어린이를 위한 혜택",

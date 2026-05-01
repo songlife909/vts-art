@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/translations';
 import Image from "next/image";
 import ApplicationForm from "@/components/ApplicationForm";
+import RotatingPrompt from "@/components/RotatingPrompt";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -83,14 +84,27 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Class Picture Section */}
-          <div className="relative h-[400px] bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl shadow-lg overflow-hidden">
+          {/* Hero Artwork — Ken Burns */}
+          <div className="relative h-[400px] md:h-[480px] rounded-2xl shadow-lg overflow-hidden bg-black">
+            <div className="absolute inset-0 animate-kenburns">
+              <Image
+                src="/images/hero/starry-night.jpg"
+                alt="The Starry Night by Vincent van Gogh, 1889 (public domain)"
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
             <div className="absolute inset-0 flex items-center justify-center p-8">
-              <div className="text-center">
-                <svg className="w-16 h-16 text-primary-600 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <p className="text-primary-700 font-medium">{t.vts.classPictureDescription}</p>
+              <div className="text-center max-w-3xl">
+                <h3 className="animate-hero-prompt text-3xl md:text-5xl font-bold text-white leading-tight">
+                  <RotatingPrompt prompts={t.vts.heroPrompts} />
+                </h3>
+                <p className="animate-fade-up-delay mt-4 text-sm md:text-base text-white/80 drop-shadow">
+                  {t.vts.heroCaption}
+                </p>
               </div>
             </div>
           </div>
