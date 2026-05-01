@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface SessionOption {
@@ -29,6 +29,12 @@ export default function AssignmentActions({
   const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [message, setMessage] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
+
+  useEffect(() => {
+    if (!message) return;
+    const id = setTimeout(() => setMessage(null), 5000);
+    return () => clearTimeout(id);
+  }, [message]);
 
   const call = async (
     endpoint: string,
@@ -60,11 +66,30 @@ export default function AssignmentActions({
   const setStatus = (status: string) =>
     call('/api/admin/status', { applicantId, status }, `Status set to ${status}`);
 
-  const notify = (kind: 'assignment' | 'waitlist' | 'rejected') =>
-    call('/api/admin/notify', { applicantId, kind }, 'Notification sent');
+  const notify = (kind: 'assignment' | 'waitlist' | 'rejected') => {
+    const labels: Record<typeof kind, string> = {
+      assignment: 'Send confirmation email to this applicant?',
+      waitlist: 'Send waitlist notice to this applicant?',
+      rejected: 'Send rejection email to this applicant?',
+    };
+    if (!window.confirm(labels[kind])) return;
+    return call('/api/admin/notify', { applicantId, kind }, 'Notification sent');
+  };
 
   return (
     <div className="space-y-6">
+      {message && (
+        <div
+          className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 px-4 py-3 rounded-md shadow-lg text-sm font-medium min-w-[260px] text-center ${
+            message.type === 'ok'
+              ? 'bg-green-600 text-white'
+              : 'bg-red-600 text-white'
+          }`}
+          role="status"
+        >
+          {message.text}
+        </div>
+      )}
       <div className="bg-white rounded-2xl shadow-sm p-6">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Class assignment</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -163,17 +188,6 @@ export default function AssignmentActions({
         </div>
       </div>
 
-      {message && (
-        <div
-          className={`p-3 rounded-md text-sm ${
-            message.type === 'ok'
-              ? 'bg-green-50 text-green-800'
-              : 'bg-red-50 text-red-800'
-          }`}
-        >
-          {message.text}
-        </div>
-      )}
     </div>
   );
 }
