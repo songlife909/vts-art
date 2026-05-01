@@ -105,6 +105,14 @@ export const translations = {
     },
     contact: {
       title: "Apply for the Pilot",
+      info: {
+        items: [
+          { label: "Duration", value: "50 minutes" },
+          { label: "Fee", value: "$45 per child" },
+          { label: "Spots", value: "First-come, first-served" }
+        ],
+        notice: "Limited capacity \u2014 spots are filled in the order applications are received and may close once full."
+      },
       form: {
         childName: 'Child Name',
         childAge: 'Child Age',
@@ -240,6 +248,14 @@ export const translations = {
     },
     contact: {
       title: "파일럿 수업 신청",
+      info: {
+        items: [
+          { label: "수업 시간", value: "50분" },
+          { label: "참가비", value: "1인당 $45" },
+          { label: "모집 방식", value: "선착순 모집" }
+        ],
+        notice: "정원이 한정되어 있어 신청 순서대로 배정되며, 정원이 차면 조기 마감될 수 있습니다."
+      },
       form: {
         childName: '자녀 이름',
         childAge: '자녀 나이',

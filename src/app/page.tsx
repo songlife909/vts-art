@@ -291,10 +291,34 @@ export default function Home() {
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="absolute inset-0 bg-[url('/images/backgrounds/contact-bg.jpg')] bg-cover bg-center opacity-10" />
         <div className="relative max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.contact.title}</h2>
             <div className="w-24 h-1 bg-secondary-500 mx-auto rounded-full" />
           </div>
+
+          <div className="max-w-2xl mx-auto mb-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {t.contact.info.items.map((item, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center justify-center bg-white rounded-xl ring-1 ring-gray-200 px-4 py-4 text-center shadow-sm break-keep"
+              >
+                <div className="text-[11px] font-semibold uppercase tracking-wider text-secondary-700">
+                  {item.label}
+                </div>
+                <div className="mt-1.5 text-sm font-semibold text-gray-900 leading-snug whitespace-nowrap">
+                  {item.value}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="max-w-2xl mx-auto mb-6 flex items-start gap-3 rounded-xl bg-amber-50 ring-1 ring-amber-200 px-4 py-3 text-sm text-amber-900">
+            <svg className="w-5 h-5 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4a2 2 0 00-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z" />
+            </svg>
+            <span>{t.contact.info.notice}</span>
+          </div>
+
           <div className="max-w-2xl mx-auto bg-white rounded-3xl shadow-xl p-8 md:p-12">
             <ApplicationForm />
           </div>
