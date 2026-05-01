@@ -27,6 +27,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Marketing Catchphrase Section */}
+      <section className="relative py-24 sm:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-primary-50/40 to-white overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute -top-24 -left-24 w-72 h-72 bg-primary-200/30 rounded-full blur-3xl" />
+          <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-secondary-200/30 rounded-full blur-3xl" />
+        </div>
+        <div className="relative max-w-6xl mx-auto">
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-600/10 text-primary-700 text-xs sm:text-sm font-semibold uppercase tracking-[0.12em]">
+              <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+              </svg>
+              <span>{t.marketing.eyebrow}</span>
+            </span>
+            <h2 className="mt-7 text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.08]">
+              <span className="block">{t.marketing.headline}</span>
+              <span className="block mt-3 text-3xl sm:text-4xl md:text-5xl bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                {t.marketing.headlineAccent}
+              </span>
+            </h2>
+            <div className="mt-6 h-1 w-16 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500" />
+            <p className="mt-6 text-base sm:text-lg text-gray-600 leading-relaxed">
+              {t.marketing.subtitle}
+            </p>
+          </div>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {t.marketing.pillars.map((p, i) => {
+              const pillarIcons = [
+                // Harvard / research
+                <path key="i0" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />,
+                // Art professional / palette
+                <path key="i1" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />,
+                // Bonus / sparkle
+                <path key="i2" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L23 12l-5.714 2.143L15 21l-2.286-6.857L7 12l5.714-2.143L15 3z" />,
+              ];
+              return (
+                <div
+                  key={i}
+                  className="group relative flex flex-col h-full bg-white rounded-2xl p-7 shadow-sm ring-1 ring-gray-100 hover:shadow-md hover:-translate-y-0.5 transition"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 text-white shadow-sm">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        {pillarIcons[i]}
+                      </svg>
+                    </span>
+                    <span className="text-xs font-mono font-semibold text-gray-400 tracking-widest">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <span className="mt-5 inline-block self-start px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider text-primary-700 bg-primary-100">
+                    {p.label}
+                  </span>
+                  <h3 className="mt-3 text-lg sm:text-xl font-bold text-gray-900 leading-snug">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-gray-600 leading-relaxed flex-1">
+                    {p.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* What is VTS Section */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="absolute inset-0 bg-[url('/images/backgrounds/pattern-light.svg')] opacity-[0.03]" />

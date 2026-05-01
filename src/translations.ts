@@ -5,6 +5,29 @@ export const translations = {
       subtitle: "Group Lessons",
       description: "Enhance children's language development through engaging group discussions about art."
     },
+    marketing: {
+      eyebrow: "Built on Harvard-rooted research",
+      headline: "Thinking grown through art.",
+      headlineAccent: "Backed by research, led by an art professional.",
+      subtitle: "A discussion-based method built on cognitive research from Harvard's Graduate School of Education \u2014 led for your child by a working art professional, with a gentle touch of art appreciation along the way.",
+      pillars: [
+        {
+          label: "Harvard-Rooted",
+          title: "Cognitive research foundation",
+          description: "Built on Abigail Housen's research at Harvard's Graduate School of Education on how children grow as thinkers through art."
+        },
+        {
+          label: "Art Professional",
+          title: "Led by a working art expert",
+          description: "Not a generic tutor. Each session is facilitated by a practicing art-education professional."
+        },
+        {
+          label: "Bonus Enrichment",
+          title: "A touch of art appreciation",
+          description: "After each discussion, we lightly share the artist and the work's story \u2014 culture as a bonus, never overriding your child\u2019s own ideas."
+        }
+      ]
+    },
     vts: {
       title: "What is Visual Thinking Strategy?",
       description: "Visual Thinking Strategy (VTS) is an educational method that uses art to develop critical thinking and communication skills. Through carefully facilitated discussions about visual art, students learn to observe, analyze, and articulate their thoughts.",
@@ -116,6 +139,29 @@ export const translations = {
       title: "시각적 사고 전략",
       subtitle: "그룹 레슨",
       description: "예술에 대한 흥미로운 그룹 토론을 통해 어린이의 언어 발달을 향상시킵니다."
+    },
+    marketing: {
+      eyebrow: "하버드 인지심리 연구를 기반으로",
+      headline: "사고력은 미술로 자랍니다.",
+      headlineAccent: "검증된 연구, 미술 전문가의 진행으로.",
+      subtitle: "하버드 교육대학원의 인지·미적 발달 연구를 토대로 한 토론식 사고력 교육. 현직 미술 전문가가 아이와 함께 이끌고, 미술 교양은 자연스러운 보너스로 더해집니다.",
+      pillars: [
+        {
+          label: "하버드 연구 기반",
+          title: "인지심리 연구가 토대",
+          description: "하버드 교육대학원에서 비롯된 Abigail Housen의 미적·인지 발달 연구가 VTS의 학문적 기반입니다."
+        },
+        {
+          label: "미술 전문가",
+          title: "현직 미술 전문가가 직접",
+          description: "일반 강사가 아닌, 현재 활동 중인 미술 교육 전문가가 매 세션을 직접 진행합니다."
+        },
+        {
+          label: "교양은 보너스",
+          title: "미술 교양도 함께",
+          description: "토론이 끝난 뒤 작가와 작품 이야기를 가볍게 곁들여 — 아이의 생각을 흐리지 않으면서 자연스러운 교양을 쌓습니다."
+        }
+      ]
     },
     vts: {
       title: "시각적 사고 전략이란?",
