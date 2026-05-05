@@ -9,8 +9,8 @@ import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "VTS Group Lessons",
-  description: "Visual Thinking Strategy (VTS) Group Lessons for children's language development",
+  title: "Art-based Literacy Lab",
+  description: "Art-based Literacy Lab \u2014 group classes that build children's language, observation, and reasoning through art-based discussion.",
 };
 
 export default function RootLayout({

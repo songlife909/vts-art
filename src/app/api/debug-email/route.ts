@@ -7,7 +7,7 @@ export async function GET() {
     const result = await resend.emails.send({
       from: EMAIL_FROM,
       to: ADMIN_NOTIFY_EMAILS[0] || 'ktw909@gmail.com',
-      subject: '[VTS] Resend debug test',
+      subject: '[Art-based Literacy Lab] Resend debug test',
       text: 'If you can read this, Resend is configured correctly.',
       html: '<p>If you can read this, <strong>Resend is configured correctly</strong>.</p>',
     });

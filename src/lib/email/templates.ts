@@ -24,11 +24,11 @@ export function applicationReceivedEmail(d: ApplicationData) {
   const session = SESSION_LABEL[d.preferredSession][d.language];
   if (d.language === 'ko') {
     return {
-      subject: 'VTS 체험수업 신청이 접수되었습니다',
+      subject: 'Art-based Literacy Lab 체험수업 신청이 접수되었습니다',
       html: `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width:600px; margin:0 auto; padding:24px; color:#111;">
   <h1 style="color:#0284c7;">신청이 접수되었습니다</h1>
-  <p>${escapeHtml(d.parentName)}님, VTS 체험수업에 신청해 주셔서 감사합니다.</p>
+  <p>${escapeHtml(d.parentName)}님, Art-based Literacy Lab 체험수업에 신청해 주셔서 감사합니다.</p>
   <p>제출하신 내용을 확인 후 곧 다음 안내 이메일을 보내드릴게요.</p>
   <h3>신청 내용</h3>
   <ul>
@@ -44,7 +44,7 @@ export function applicationReceivedEmail(d: ApplicationData) {
 </div>`,
       text: `신청이 접수되었습니다.
 
-${d.parentName}님, VTS 체험수업에 신청해 주셔서 감사합니다.
+${d.parentName}님, Art-based Literacy Lab 체험수업에 신청해 주셔서 감사합니다.
 제출하신 내용을 확인 후 곧 다음 안내 이메일을 보내드릴게요.
 
 [신청 내용]
@@ -58,11 +58,11 @@ ${d.parentName}님, VTS 체험수업에 신청해 주셔서 감사합니다.
     };
   }
   return {
-    subject: 'VTS Trial Class Application Received',
+    subject: 'Art-based Literacy Lab — Trial Class Application Received',
     html: `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width:600px; margin:0 auto; padding:24px; color:#111;">
   <h1 style="color:#0284c7;">Your application is received</h1>
-  <p>Hi ${escapeHtml(d.parentName)}, thanks for applying to the VTS trial class.</p>
+  <p>Hi ${escapeHtml(d.parentName)}, thanks for applying to the Art-based Literacy Lab trial class.</p>
   <p>We'll review your application and follow up with next steps shortly.</p>
   <h3>Application Details</h3>
   <ul>
@@ -78,7 +78,7 @@ ${d.parentName}님, VTS 체험수업에 신청해 주셔서 감사합니다.
 </div>`,
     text: `Your application is received.
 
-Hi ${d.parentName}, thanks for applying to the VTS trial class.
+Hi ${d.parentName}, thanks for applying to the Art-based Literacy Lab trial class.
 We'll review your application and follow up with next steps shortly.
 
 [Application Details]
@@ -102,12 +102,12 @@ export function assignmentConfirmedEmail(
   const session = SESSION_LABEL[sessionTime][d.language];
   if (d.language === 'ko') {
     return {
-      subject: '[VTS] 체험수업 배정 완료',
+      subject: '[Art-based Literacy Lab] 체험수업 배정 완료',
       html: `
 <div style="font-family: -apple-system, sans-serif; max-width:600px; margin:0 auto; padding:24px; color:#111;">
   <h1 style="color:#0284c7;">수업이 배정되었습니다</h1>
   <p>${escapeHtml(d.parentName)}님, 안녕하세요.</p>
-  <p>${escapeHtml(d.childName)} 어린이의 VTS 체험수업이 아래와 같이 배정되었습니다.</p>
+  <p>${escapeHtml(d.childName)} 어린이의 Art-based Literacy Lab 체험수업이 아래와 같이 배정되었습니다.</p>
   <div style="background:#f0f9ff; padding:16px; border-radius:12px; margin:16px 0;">
     <p style="margin:0;"><strong>일시:</strong> 2026년 5월 16일 (토) ${escapeHtml(session)}</p>
     <p style="margin:8px 0 0;"><strong>장소:</strong> 1952 Gallows Rd, 3rd floor conference room, Vienna, VA 22182</p>
@@ -116,7 +116,7 @@ export function assignmentConfirmedEmail(
 </div>`,
       text: `수업이 배정되었습니다.
 
-${d.parentName}님, ${d.childName} 어린이의 VTS 체험수업이 다음과 같이 배정되었습니다.
+${d.parentName}님, ${d.childName} 어린이의 Art-based Literacy Lab 체험수업이 다음과 같이 배정되었습니다.
 
 일시: 2026년 5월 16일 (토) ${session}
 장소: 1952 Gallows Rd, 3rd floor conference room, Vienna, VA 22182
@@ -125,12 +125,12 @@ ${d.parentName}님, ${d.childName} 어린이의 VTS 체험수업이 다음과 �
     };
   }
   return {
-    subject: '[VTS] Trial class confirmed',
+    subject: '[Art-based Literacy Lab] Trial class confirmed',
     html: `
 <div style="font-family: -apple-system, sans-serif; max-width:600px; margin:0 auto; padding:24px; color:#111;">
   <h1 style="color:#0284c7;">Your class is confirmed</h1>
   <p>Hi ${escapeHtml(d.parentName)},</p>
-  <p>${escapeHtml(d.childName)} is assigned to the following VTS trial class:</p>
+  <p>${escapeHtml(d.childName)} is assigned to the following Art-based Literacy Lab trial class:</p>
   <div style="background:#f0f9ff; padding:16px; border-radius:12px; margin:16px 0;">
     <p style="margin:0;"><strong>When:</strong> Saturday, May 16, 2026 — ${escapeHtml(session)}</p>
     <p style="margin:8px 0 0;"><strong>Where:</strong> 1952 Gallows Rd, 3rd floor conference room, Vienna, VA 22182</p>
@@ -139,7 +139,7 @@ ${d.parentName}님, ${d.childName} 어린이의 VTS 체험수업이 다음과 �
 </div>`,
     text: `Your class is confirmed.
 
-Hi ${d.parentName}, ${d.childName} is assigned to the following VTS trial class:
+Hi ${d.parentName}, ${d.childName} is assigned to the following Art-based Literacy Lab trial class:
 
 When: Saturday, May 16, 2026 — ${session}
 Where: 1952 Gallows Rd, 3rd floor conference room, Vienna, VA 22182
@@ -151,7 +151,7 @@ Please arrive 5 minutes early.`,
 export function waitlistEmail(d: ApplicationData) {
   if (d.language === 'ko') {
     return {
-      subject: '[VTS] 체험수업 대기 안내',
+      subject: '[Art-based Literacy Lab] 체험수업 대기 안내',
       html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
 <h2>대기자 명단에 등록되었습니다</h2>
 <p>${escapeHtml(d.parentName)}님, 신청해 주셔서 감사합니다.</p>
@@ -162,7 +162,7 @@ export function waitlistEmail(d: ApplicationData) {
     };
   }
   return {
-    subject: '[VTS] Trial class waitlist',
+    subject: '[Art-based Literacy Lab] Trial class waitlist',
     html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
 <h2>You're on the waitlist</h2>
 <p>Hi ${escapeHtml(d.parentName)}, thanks for applying.</p>
@@ -176,7 +176,7 @@ We'll reach out the moment a spot opens up.</p>
 export function rejectedEmail(d: ApplicationData) {
   if (d.language === 'ko') {
     return {
-      subject: '[VTS] 체험수업 신청 안내',
+      subject: '[Art-based Literacy Lab] 체험수업 신청 안내',
       html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
 <p>${escapeHtml(d.parentName)}님, 신청해 주셔서 감사합니다.</p>
 <p>아쉽게도 이번 체험수업에서는 함께하지 못하게 되었습니다. 다음 기회에 꼭 모실 수 있도록 노력하겠습니다.</p>
@@ -185,7 +185,7 @@ export function rejectedEmail(d: ApplicationData) {
     };
   }
   return {
-    subject: '[VTS] About your trial class application',
+    subject: '[Art-based Literacy Lab] About your trial class application',
     html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:24px;">
 <p>Hi ${escapeHtml(d.parentName)}, thanks for applying.</p>
 <p>Unfortunately we won't be able to include ${escapeHtml(d.childName)} in this trial class. We hope to welcome you in a future cohort.</p>
@@ -200,7 +200,7 @@ export function rejectedEmail(d: ApplicationData) {
 export function adminNewApplicationEmail(d: ApplicationData, applicantId: string) {
   const session = SESSION_LABEL[d.preferredSession].en;
   return {
-    subject: `[VTS] New trial class application from ${d.parentName}`,
+    subject: `[Art-based Literacy Lab] New trial class application from ${d.parentName}`,
     html: `
 <div style="font-family: -apple-system, sans-serif; max-width:600px; margin:0 auto; padding:24px; color:#111;">
   <h2>New trial class application</h2>

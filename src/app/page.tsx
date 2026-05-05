@@ -94,7 +94,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What is VTS Section */}
+      {/* How does the class work? Section */}
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="absolute inset-0 bg-[url('/images/backgrounds/pattern-light.svg')] opacity-[0.03]" />
         <div className="relative max-w-7xl mx-auto">
@@ -247,7 +247,7 @@ export default function Home() {
             <div className="relative aspect-[3/4] w-full max-w-[25.2rem] mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-100">
               <Image
                 src="/images/teachers/eunjeong-choi.jpg"
-                alt="Eunjung Choi - VTS Teacher"
+                alt="Eunjung Choi - Lead Instructor"
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

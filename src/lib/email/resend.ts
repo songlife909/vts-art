@@ -11,7 +11,7 @@ export function getResend(): Resend {
   return _resend;
 }
 
-export const EMAIL_FROM = process.env.EMAIL_FROM || 'VTS <onboarding@resend.dev>';
+export const EMAIL_FROM = process.env.EMAIL_FROM || 'Art-based Literacy Lab <onboarding@resend.dev>';
 
 export const ADMIN_NOTIFY_EMAILS = (process.env.ADMIN_NOTIFY_EMAILS || '')
   .split(',')
