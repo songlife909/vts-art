@@ -60,6 +60,16 @@ export default async function ApplicantDetailPage({
           <Field label="Email" value={applicant.email} />
           <Field label="Phone" value={applicant.phone} />
           <Field label="Preferred" value={applicant.preferred_session} />
+          <Field
+            label="English (speaking)"
+            value={
+              applicant.english_level === 'intermediate'
+                ? 'Intermediate or higher'
+                : applicant.english_level === 'basic'
+                ? 'Basic'
+                : '—'
+            }
+          />
           <Field label="Language" value={applicant.language} />
           <Field
             label="Submitted"

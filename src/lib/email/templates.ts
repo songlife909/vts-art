@@ -7,9 +7,15 @@ export interface ApplicationData {
   email: string;
   phone: string;
   preferredSession: '10:00' | '11:00' | 'either';
+  englishLevel: 'basic' | 'intermediate';
   message: string | null;
   language: 'en' | 'ko';
 }
+
+const ENGLISH_LEVEL_LABEL: Record<ApplicationData['englishLevel'], { en: string; ko: string }> = {
+  basic: { en: 'Basic', ko: '초급' },
+  intermediate: { en: 'Intermediate or higher', ko: '중급 이상' },
+};
 
 const SESSION_LABEL: Record<ApplicationData['preferredSession'], { en: string; ko: string }> = {
   '10:00': { en: '10:00 AM', ko: '오전 10시' },
@@ -27,6 +33,8 @@ const TXT_HR = `\n\n———\n\n`;
 export function applicationReceivedEmail(d: ApplicationData) {
   const sessionEN = SESSION_LABEL[d.preferredSession].en;
   const sessionKO = SESSION_LABEL[d.preferredSession].ko;
+  const levelEN = ENGLISH_LEVEL_LABEL[d.englishLevel].en;
+  const levelKO = ENGLISH_LEVEL_LABEL[d.englishLevel].ko;
   return {
     subject: 'Application Received · 체험수업 신청이 접수되었습니다',
     html: `
@@ -41,6 +49,7 @@ export function applicationReceivedEmail(d: ApplicationData) {
     <li>Email: ${escapeHtml(d.email)}</li>
     <li>Phone: ${escapeHtml(d.phone)}</li>
     <li>Preferred time: ${escapeHtml(sessionEN)}</li>
+    <li>English level (speaking): ${escapeHtml(levelEN)}</li>
   </ul>
   <p style="color:#666; font-size:14px;">Trial class date: Saturday, May 16, 2026 — Vienna, VA</p>
   ${HR}
@@ -54,6 +63,7 @@ export function applicationReceivedEmail(d: ApplicationData) {
     <li>이메일: ${escapeHtml(d.email)}</li>
     <li>전화: ${escapeHtml(d.phone)}</li>
     <li>희망 시간: ${escapeHtml(sessionKO)}</li>
+    <li>영어 수준 (말하기): ${escapeHtml(levelKO)}</li>
   </ul>
   <p style="color:#666; font-size:14px;">체험수업 일정: 2026년 5월 16일 (토), Vienna, VA</p>
 </div>`,
@@ -68,6 +78,7 @@ We'll review your application and follow up with next steps shortly.
 - Email: ${d.email}
 - Phone: ${d.phone}
 - Preferred time: ${sessionEN}
+- English level (speaking): ${levelEN}
 
 Trial class date: Saturday, May 16, 2026 — Vienna, VA${TXT_HR}신청이 접수되었습니다.
 
@@ -80,6 +91,7 @@ ${d.parentName}님, Art-based Literacy Lab 체험수업에 신청해 주셔서 �
 - 이메일: ${d.email}
 - 전화: ${d.phone}
 - 희망 시간: ${sessionKO}
+- 영어 수준 (말하기): ${levelKO}
 
 체험수업 일정: 2026년 5월 16일 (토), Vienna, VA`,
   };
@@ -180,6 +192,7 @@ ${HR}
  */
 export function adminNewApplicationEmail(d: ApplicationData, applicantId: string) {
   const session = SESSION_LABEL[d.preferredSession].en;
+  const level = ENGLISH_LEVEL_LABEL[d.englishLevel].en;
   return {
     subject: `[Art-based Literacy Lab] New application from ${d.parentName} · 신규 신청`,
     html: `
@@ -191,6 +204,7 @@ export function adminNewApplicationEmail(d: ApplicationData, applicantId: string
     <li><strong>Email:</strong> ${escapeHtml(d.email)}</li>
     <li><strong>Phone / 전화:</strong> ${escapeHtml(d.phone)}</li>
     <li><strong>Preferred / 희망 시간:</strong> ${escapeHtml(session)}</li>
+    <li><strong>English level / 영어 수준:</strong> ${escapeHtml(level)}</li>
     <li><strong>Language / 언어:</strong> ${escapeHtml(d.language)}</li>
     ${d.message ? `<li><strong>Message / 메시지:</strong> ${escapeHtml(d.message)}</li>` : ''}
   </ul>
@@ -203,6 +217,7 @@ Parent / 학부모: ${d.parentName}
 Email: ${d.email}
 Phone / 전화: ${d.phone}
 Preferred / 희망 시간: ${session}
+English level / 영어 수준: ${level}
 Language / 언어: ${d.language}
 ${d.message ? `Message / 메시지: ${d.message}\n` : ''}
 Applicant ID: ${applicantId}`,

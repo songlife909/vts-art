@@ -38,6 +38,7 @@ export async function POST(req: NextRequest) {
     email: applicant.email,
     phone: applicant.phone,
     preferredSession: applicant.preferred_session,
+    englishLevel: applicant.english_level ?? 'basic',
     message: applicant.message,
     language: applicant.language,
   };

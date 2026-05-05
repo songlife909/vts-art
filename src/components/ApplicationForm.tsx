@@ -5,6 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { translations } from '@/translations';
 
 type PreferredSession = '10:00' | '11:00' | 'either';
+type EnglishLevel = '' | 'basic' | 'intermediate';
 
 interface FormState {
   childName: string;
@@ -13,6 +14,7 @@ interface FormState {
   email: string;
   phone: string;
   preferredSession: PreferredSession;
+  englishLevel: EnglishLevel;
   message: string;
   consent: boolean;
 }
@@ -24,6 +26,7 @@ const initialState: FormState = {
   email: '',
   phone: '',
   preferredSession: 'either',
+  englishLevel: '',
   message: '',
   consent: false,
 };
@@ -48,7 +51,7 @@ export default function ApplicationForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!data.consent) return;
+    if (!data.consent || !data.englishLevel) return;
     setStatus('submitting');
 
     try {
@@ -173,6 +176,41 @@ export default function ApplicationForm() {
       </div>
 
       <div>
+        <span className="block text-sm font-medium text-gray-700">
+          {t.englishLevel} *
+        </span>
+        <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {([
+            { value: 'basic', label: t.englishBasic },
+            { value: 'intermediate', label: t.englishIntermediate },
+          ] as const).map((opt) => {
+            const checked = data.englishLevel === opt.value;
+            return (
+              <label
+                key={opt.value}
+                className={`flex items-center gap-2 px-4 py-3 rounded-md border cursor-pointer transition ${
+                  checked
+                    ? 'border-primary-500 bg-primary-50 text-primary-900'
+                    : 'border-gray-300 hover:border-gray-400'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="englishLevel"
+                  value={opt.value}
+                  checked={checked}
+                  onChange={handleChange}
+                  required
+                  className="h-4 w-4 text-primary-600 focus:ring-primary-500"
+                />
+                <span className="text-sm">{opt.label}</span>
+              </label>
+            );
+          })}
+        </div>
+      </div>
+
+      <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700">
           {t.message}
         </label>
@@ -217,7 +255,7 @@ export default function ApplicationForm() {
 
       <button
         type="submit"
-        disabled={status === 'submitting' || !data.consent}
+        disabled={status === 'submitting' || !data.consent || !data.englishLevel}
         className="w-full bg-primary-600 text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-primary-700 transition shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === 'submitting' ? t.submitting : t.submit}

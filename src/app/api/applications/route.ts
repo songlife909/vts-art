@@ -14,6 +14,7 @@ interface IncomingPayload {
   email?: string;
   phone?: string;
   preferredSession?: string;
+  englishLevel?: string;
   message?: string;
   consent?: boolean;
   language?: string;
@@ -21,6 +22,7 @@ interface IncomingPayload {
 
 const ALLOWED_SESSIONS = new Set(['10:00', '11:00', 'either']);
 const ALLOWED_LANGUAGES = new Set(['en', 'ko']);
+const ALLOWED_ENGLISH_LEVELS = new Set(['basic', 'intermediate']);
 
 // Very small in-memory rate limit (per server instance). Good enough for the
 // pilot; replace with Upstash for production scale.
@@ -60,6 +62,7 @@ export async function POST(request: NextRequest) {
     const email = body.email?.trim().toLowerCase();
     const phone = body.phone?.trim();
     const preferredSession = body.preferredSession ?? 'either';
+    const englishLevel = body.englishLevel;
     const language = body.language ?? 'en';
     const message = body.message?.trim() || null;
     const consent = body.consent === true;
@@ -76,6 +79,9 @@ export async function POST(request: NextRequest) {
     }
     if (!ALLOWED_SESSIONS.has(preferredSession)) {
       return NextResponse.json({ error: 'Invalid preferredSession' }, { status: 400 });
+    }
+    if (!englishLevel || !ALLOWED_ENGLISH_LEVELS.has(englishLevel)) {
+      return NextResponse.json({ error: 'Invalid englishLevel' }, { status: 400 });
     }
     if (!ALLOWED_LANGUAGES.has(language)) {
       return NextResponse.json({ error: 'Invalid language' }, { status: 400 });
@@ -99,6 +105,7 @@ export async function POST(request: NextRequest) {
         phone,
         message,
         preferred_session: preferredSession,
+        english_level: englishLevel,
         language,
       })
       .select('id')
@@ -116,6 +123,7 @@ export async function POST(request: NextRequest) {
       email,
       phone,
       preferredSession: preferredSession as ApplicationData['preferredSession'],
+      englishLevel: englishLevel as ApplicationData['englishLevel'],
       message,
       language: language as ApplicationData['language'],
     };

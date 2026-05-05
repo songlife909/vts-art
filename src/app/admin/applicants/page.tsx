@@ -12,6 +12,12 @@ const STATUS_BADGE: Record<string, string> = {
   rejected: 'bg-red-100 text-red-800',
 };
 
+function englishLabel(level: string | null | undefined): string {
+  if (level === 'intermediate') return 'Intermediate+';
+  if (level === 'basic') return 'Basic';
+  return '—';
+}
+
 export default async function ApplicantsPage({
   searchParams,
 }: {
@@ -23,7 +29,7 @@ export default async function ApplicantsPage({
   let query = supabase
     .from('applicants')
     .select(
-      'id, child_name, child_age, parent_name, email, phone, preferred_session, status, language, created_at'
+      'id, child_name, child_age, parent_name, email, phone, preferred_session, english_level, status, language, created_at'
     )
     .order('created_at', { ascending: false });
 
@@ -117,6 +123,7 @@ export default async function ApplicantsPage({
                   <div className="text-xs text-gray-500">{a.phone}</div>
                   <div className="mt-2 flex items-center justify-between text-xs text-gray-500">
                     <span>Pref: {a.preferred_session}</span>
+                    <span>Eng: {englishLabel(a.english_level)}</span>
                     <span>{new Date(a.created_at).toLocaleDateString()}</span>
                   </div>
                 </Link>
@@ -134,6 +141,7 @@ export default async function ApplicantsPage({
                     <th className="px-4 py-3">Parent</th>
                     <th className="px-4 py-3">Contact</th>
                     <th className="px-4 py-3">Pref</th>
+                    <th className="px-4 py-3">English</th>
                     <th className="px-4 py-3">Status</th>
                     <th className="px-4 py-3">Submitted</th>
                     <th className="px-4 py-3"></th>
@@ -154,6 +162,7 @@ export default async function ApplicantsPage({
                         <div className="text-xs text-gray-500">{a.phone}</div>
                       </td>
                       <td className="px-4 py-3 text-sm">{a.preferred_session}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700">{englishLabel(a.english_level)}</td>
                       <td className="px-4 py-3 text-sm">
                         <span
                           className={`inline-block px-2 py-1 text-xs rounded-full ${
