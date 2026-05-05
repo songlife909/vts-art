@@ -88,7 +88,7 @@ export const translations = {
     teacher: {
       title: "Meet Your Teacher",
       name: "Eunjung Choi",
-      bio: "Completed K\u201312 education across the United States and South Korea, gaining cross-cultural academic experience. Brings hands-on teaching experience integrating art with Visual Thinking Strategy in the classroom.",
+      bio: "Completed K\u201312 education across the United States and South Korea, gaining cross-cultural academic experience. Brings hands-on teaching experience integrating art with discussion-based learning in the classroom.",
       qualificationsTitle: "Education & Experience",
       qualifications: [
         "PhD in Art Education (Minor in Curriculum & Instruction), Penn State, 2022",
@@ -239,7 +239,7 @@ export const translations = {
     teacher: {
       title: "선생님 소개",
       name: "최은정",
-      bio: "한국과 미국에서 K\u201312 정규 교육 과정을 모두 이수하며 양국의 학문적 경험을 두루 쌓았습니다. 미술과 시각적 사고 전략(VTS)을 접목한 교육 현장 경험을 갖추고 있습니다.",
+      bio: "한국과 미국에서 K\u201312 정규 교육 과정을 모두 이수하며 양국의 학문적 경험을 두루 쌓았습니다. 미술과 토론식 학습을 접목한 교육 현장 경험을 갖추고 있습니다.",
       qualificationsTitle: "학력 및 경력",
       qualifications: [
         "미술교육 박사 (부전공: 교육과정 및 교수학), 펜실베이니아 주립대(Penn State), 2022",
