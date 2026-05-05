@@ -34,7 +34,7 @@ export default async function AdminDashboard() {
     <div className="space-y-8">
       <div>
         <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <p className="text-gray-600 mt-1">VTS pilot — May 16, 2026, Vienna VA</p>
+        <p className="text-gray-600 mt-1">VTS trial class — May 16, 2026, Vienna VA</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

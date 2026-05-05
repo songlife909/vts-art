@@ -23,7 +23,7 @@ export default async function SessionsPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-gray-900">Sessions</h1>
-        <p className="text-gray-600 mt-1">VTS pilot — May 16, 2026, Vienna VA</p>
+        <p className="text-gray-600 mt-1">VTS trial class — May 16, 2026, Vienna VA</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {((sessions ?? []) as SessionRow[]).map((s) => {

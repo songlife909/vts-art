@@ -150,7 +150,14 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
+          {/* Post-discussion enrichment note */}
+          <div className="max-w-3xl mx-auto mb-16 text-center">
+            <div className="inline-block bg-amber-50 border border-amber-100 rounded-2xl px-8 py-6">
+              <p className="text-gray-700 leading-relaxed">{t.vts.postDiscussion}</p>
+            </div>
+          </div>
+
           {/* Hero Artwork — Ken Burns */}
           <div className="relative h-[400px] md:h-[480px] rounded-2xl shadow-lg overflow-hidden bg-black">
             <div className="absolute inset-0 animate-kenburns">
@@ -236,7 +243,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.teacher.title}</h2>
             <div className="w-24 h-1 bg-primary-500 mx-auto rounded-full" />
           </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
             <div className="relative aspect-[3/4] w-full max-w-[25.2rem] mx-auto rounded-2xl overflow-hidden shadow-lg bg-gray-100">
               <Image
                 src="/images/teachers/eunjeong-choi.jpg"
@@ -256,7 +263,7 @@ export default function Home() {
               </p>
               <div className="space-y-4">
                 <h4 className="text-xl font-semibold text-gray-900">{t.teacher.qualificationsTitle}</h4>
-                <ul className="space-y-3 text-gray-700">
+                <ul className="space-y-1.5 text-gray-700 leading-snug">
                   {t.teacher.qualifications.map((qualification, index) => (
                     <li key={index} className="flex items-start">
                       <span className="text-primary-600 font-medium mr-2">•</span>

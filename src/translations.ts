@@ -1,20 +1,20 @@
 export const translations = {
   en: {
     hero: {
-      title: "Visual Thinking Strategy",
+      title: "Art-based Literacy Lab",
       subtitle: "Group Lessons",
       description: "Enhance children's language development through engaging group discussions about art."
     },
     marketing: {
-      eyebrow: "Built on Harvard-rooted research",
+      eyebrow: "Used at Harvard Medical School",
       headline: "Thinking grown through art.",
       headlineAccent: "Backed by research, led by an art professional.",
-      subtitle: "A discussion-based method built on cognitive research from Harvard's Graduate School of Education \u2014 led for your child by a working art professional, with a gentle touch of art appreciation along the way.",
+      subtitle: "A discussion-based method used at Harvard Medical School and other leading institutions \u2014 led for your child by a working art professional, with a gentle touch of art appreciation along the way.",
       pillars: [
         {
-          label: "Harvard-Rooted",
-          title: "Cognitive research foundation",
-          description: "Built on Abigail Housen's research at Harvard's Graduate School of Education on how children grow as thinkers through art."
+          label: "Harvard Medical School",
+          title: "Trusted by leading institutions",
+          description: "Used in Harvard Medical School\u2019s \u201CTraining the Eye\u201D program to sharpen observation skills \u2014 the same approach, gently adapted for children."
         },
         {
           label: "Art Professional",
@@ -29,20 +29,21 @@ export const translations = {
       ]
     },
     vts: {
-      title: "What is Visual Thinking Strategy?",
-      description: "Visual Thinking Strategy (VTS) is an educational method that uses art to develop critical thinking and communication skills. Through carefully facilitated discussions about visual art, students learn to observe, analyze, and articulate their thoughts.",
-      exampleQuestions: "Example VTS Questions:",
+      title: "How does the class work?",
+      description: "Our class invites children into open-ended conversations about real artworks. We ask simple but powerful questions and let their observations lead. The teacher's role is not to give right answers \u2014 it is to listen, paraphrase, and connect ideas \u2014 so children naturally build observation, language, evidence-based reasoning, and the confidence to express what they see.",
+      exampleQuestions: "Open-ended Questions We Ask",
       questions: [
         "What's going on in this picture?",
         "What do you see that makes you say that?",
         "What more can we find?"
       ],
-      facilitatorRole: "Facilitator's Role:",
+      facilitatorRole: "What the Teacher Does",
       facilitatorActions: [
         "Paraphrase comments neutrally",
         "Point to observations",
         "Link related comments"
       ],
+      postDiscussion: "After the discussion, we share a light note about the work \u2014 its artist, era, and backstory \u2014 so children's curiosity about art keeps deepening long after class ends.",
       artworkTitle: "A Sunday Afternoon on the Island of La Grande Jatte",
       artworkArtist: "Georges Seurat",
       artworkYear: "1884",
@@ -70,13 +71,13 @@ export const translations = {
         },
         {
           title: "Cultural Enrichment (Bonus)",
-          description: "After each VTS discussion, we share a light note about the artist or the work\u2019s background \u2014 purely as a bonus. The children\u2019s own observations and interpretations always come first."
+          description: "After each discussion, we share a light note about the artist or the work\u2019s background \u2014 purely as a bonus. The children\u2019s own observations and interpretations always come first."
         }
       ]
     },
     teachingApproach: {
       title: "Our Teaching Approach",
-      description: "Our VTS sessions are led by experienced facilitators who create a safe and engaging environment for children to explore art and develop their thinking skills. Each session is carefully structured to:",
+      description: "Each session is led by an experienced art-education professional who creates a safe and engaging environment for children to explore art and develop their thinking skills. Each session is carefully structured to:",
       steps: [
         "Encourage careful observation and detailed description",
         "Support evidence-based reasoning",
@@ -87,28 +88,35 @@ export const translations = {
     teacher: {
       title: "Meet Your Teacher",
       name: "Eunjung Choi",
-      bio: "A dedicated educator with extensive experience in Visual Thinking Strategy and art education.",
-      qualificationsTitle: "Professional Experience",
+      bio: "Completed K\u201312 education across the United States and South Korea, gaining cross-cultural academic experience. Brings hands-on teaching experience integrating art with Visual Thinking Strategy in the classroom.",
+      qualificationsTitle: "Education & Experience",
       qualifications: [
-        "Over 15 years of experience in art education and VTS facilitation",
-        "Certified VTS Trainer with advanced certification from the Visual Thinking Strategies organization",
-        "Doctoral degree in Art Education from Penn State University",
-        "Former Art Education Director at Seoul Arts Center",
-        "Published researcher in the field of visual literacy and art education",
-        "International conference speaker on VTS implementation and best practices"
+        "PhD in Art Education (Minor in Curriculum & Instruction), Penn State, 2022",
+        "M.A. in Art Education, UT Austin, 2012",
+        "M.A. in Visual Art Studies, Ewha Womans University, 2007",
+        "B.A. in Art History (dual degree), Ewha Womans University, 2004",
+        "B.F.A. in Visual Communication Design, Ewha Womans University, 2004",
+        "University-level teaching experience at Penn State (online and in-person)",
+        "K\u201312 teaching experience, including Art and English Language Development (ELD)",
+        "Experience with major art museums (education and program development)",
+        "Designed discussion-based learning programs and educational materials",
+        "Expertise in visual inquiry and discussion-based teaching methods",
+        "Cross-cultural experience in Korean and U.S. education contexts",
+        "Published scholar in art education and museum learning",
+        "Research focus on visual inquiry, museum pedagogy, and culturally responsive learning"
       ]
     },
     pilot: {
-      title: "Pilot Lesson Now Accepting Applications!",
-      description: "Join our exclusive pilot VTS session on May 16th in Vienna, Virginia. Limited slots available - don't miss this opportunity to experience the transformative power of Visual Thinking Strategy!",
-      cta: "Please use the form below to apply for the pilot session."
+      title: "Trial Class Now Accepting Applications!",
+      description: "Join our exclusive trial class on May 16th in Vienna \u2014 right by Tysons Corner Mall. Limited slots available \u2014 don't miss this chance to experience how a thoughtful art-based discussion can spark your child's thinking!",
+      cta: "Please use the form below to apply for the trial class."
     },
     contact: {
-      title: "Apply for the Pilot",
+      title: "Apply for the Trial Class",
       info: {
         items: [
           { label: "Duration", value: "50 minutes" },
-          { label: "Fee", value: "$45 per child" },
+          { label: "Fee", value: "$30 per child" },
           { label: "Spots", value: "First-come, first-served" }
         ],
         notice: "Limited capacity \u2014 spots are filled in the order applications are received and may close once full."
@@ -125,7 +133,7 @@ export const translations = {
         sessionOption11: 'Saturday, May 16 \u00B7 11:00 AM',
         sessionOptionEither: 'Either time works',
         message: 'Message (optional)',
-        consent: 'I agree to be contacted about this pilot session.',
+        consent: 'I agree to be contacted about this trial class.',
         submit: 'Apply',
         submitting: 'Submitting...',
         namePlaceholder: 'Enter your name',
@@ -144,20 +152,20 @@ export const translations = {
   },
   ko: {
     hero: {
-      title: "시각적 사고 전략",
+      title: "미술기반 문해력 연구소",
       subtitle: "그룹 레슨",
       description: "예술에 대한 흥미로운 그룹 토론을 통해 어린이의 언어 발달을 향상시킵니다."
     },
     marketing: {
-      eyebrow: "하버드 인지심리 연구를 기반으로",
+      eyebrow: "하버드 의대에서도 활용되는 교육법",
       headline: "사고력은 미술로 자랍니다.",
       headlineAccent: "검증된 연구, 미술 전문가의 진행으로.",
-      subtitle: "하버드 교육대학원의 인지·미적 발달 연구를 토대로 한 토론식 사고력 교육. 현직 미술 전문가가 아이와 함께 이끌고, 미술 교양은 자연스러운 보너스로 더해집니다.",
+      subtitle: "하버드 의대를 비롯한 세계 유수 기관에서 활용되는 토론식 사고력 교육. 현직 미술 전문가가 아이와 함께 이끌고, 미술 교양은 자연스러운 보너스로 더해집니다.",
       pillars: [
         {
-          label: "하버드 연구 기반",
-          title: "인지심리 연구가 토대",
-          description: "하버드 교육대학원에서 비롯된 Abigail Housen의 미적·인지 발달 연구가 VTS의 학문적 기반입니다."
+          label: "하버드 의대 활용",
+          title: "유수 기관이 채택한 교육법",
+          description: "하버드 의대의 'Training the Eye' 프로그램에서 의대생 관찰력 훈련에 활용되는 검증된 방법을, 어린이를 위해 부드럽게 풀어 진행합니다."
         },
         {
           label: "미술 전문가",
@@ -172,20 +180,21 @@ export const translations = {
       ]
     },
     vts: {
-      title: "시각적 사고 전략이란?",
-      description: "시각적 사고 전략(VTS)은 예술을 활용하여 비판적 사고와 의사소통 능력을 개발하는 교육 방법입니다. 시각 예술에 대한 신중하게 진행되는 토론을 통해 학생들은 관찰, 분석 및 생각을 명확하게 표현하는 방법을 배웁니다.",
-      exampleQuestions: "VTS 예시 질문:",
+      title: "수업이 어떻게 진행되나요?",
+      description: "수업은 실제 작품을 두고 아이들과 열린 대화를 나눕니다. 단순하지만 강력한 질문을 던진 뒤 아이들의 관찰이 대화를 이끌어가도록 합니다. 교사는 정답을 알려주는 대신 아이들의 말을 풀어 다시 들려주고, 관찰을 함께 짚어주며, 서로의 생각을 자연스럽게 이어줍니다. 이 과정을 통해 아이들은 관찰력, 어휘력, 근거 기반 사고력, 그리고 자신의 생각을 표현하는 자신감을 키워갑니다.",
+      exampleQuestions: "수업에서 던지는 질문",
       questions: [
         "이 그림에서 무슨 일이 일어나고 있나요?",
         "무엇을 보고 그렇게 말씀하시나요?",
         "더 찾아볼 수 있는 것이 있을까요?"
       ],
-      facilitatorRole: "교사의 역할:",
+      facilitatorRole: "교사의 역할",
       facilitatorActions: [
         "중립적으로 의견을 다시 말하기",
         "관찰을 지적하기",
         "관련 의견을 연결하기"
       ],
+      postDiscussion: "토론이 끝난 뒤에는 작품에 얽힌 이야기를 가볍게 들려드립니다. 작가, 시대 배경, 작품 속 이야기 — 미술에 대한 호기심과 이해는 자연스럽게 한 단계 더 깊어집니다.",
       artworkTitle: "라 그랑드 자트 섬의 일요일 오후",
       artworkArtist: "조르주 쇠라",
       artworkYear: "1884년",
@@ -213,13 +222,13 @@ export const translations = {
         },
         {
           title: "예술 교양 (보너스)",
-          description: "VTS 토론이 끝난 뒤, 작가나 작품의 배경에 대해 가볍게 한 마디를 곁들입니다. 어디까지나 보너스이며, 아이들 스스로의 관찰과 해석이 언제나 우선입니다."
+          description: "토론이 끝난 뒤, 작가나 작품의 배경에 대해 가볍게 한 마디를 곁들입니다. 어디까지나 보너스이며, 아이들 스스로의 관찰과 해석이 언제나 우선입니다."
         }
       ]
     },
     teachingApproach: {
       title: "우리의 교육 접근 방식",
-      description: "우리의 VTS 수업은 경험이 풍부한 교사들이 진행하며, 어린이들이 예술을 탐구하고 사고 능력을 개발할 수 있는 안전하고 매력적인 환경을 조성합니다. 각 수업은 다음과 같이 신중하게 구성됩니다:",
+      description: "수업은 미술 교육과 토론식 학습 진행 경험을 갖춘 강사가 직접 진행하며, 어린이들이 예술을 탐구하고 사고 능력을 개발할 수 있는 안전하고 매력적인 환경을 만듭니다. 각 수업은 다음과 같이 신중하게 구성됩니다:",
       steps: [
         "신중한 관찰과 상세한 설명을 장려하기",
         "증거 기반 추론 지원하기",
@@ -230,28 +239,35 @@ export const translations = {
     teacher: {
       title: "선생님 소개",
       name: "최은정",
-      bio: "시각적 사고 전략과 미술 교육 분야에서 풍부한 경험을 가진 헌신적인 교육자입니다.",
-      qualificationsTitle: "전문 경력",
+      bio: "한국과 미국에서 K\u201312 정규 교육 과정을 모두 이수하며 양국의 학문적 경험을 두루 쌓았습니다. 미술과 시각적 사고 전략(VTS)을 접목한 교육 현장 경험을 갖추고 있습니다.",
+      qualificationsTitle: "학력 및 경력",
       qualifications: [
-        "미술 교육 및 VTS 진행 경력 15년 이상",
-        "Visual Thinking Strategies 기관의 고급 인증을 받은 VTS 트레이너",
-        "펜실베이니아 주립대학교 미술교육 박사",
-        "서울예술의전당 전 미술교육 디렉터",
-        "시각적 문해력 및 미술 교육 분야의 연구 논문 발표",
-        "VTS 구현 및 모범 사례에 관한 국제 컨퍼런스 연사"
+        "미술교육 박사 (부전공: 교육과정 및 교수학), 펜실베이니아 주립대(Penn State), 2022",
+        "미술교육 석사, 텍사스 오스틴대(UT Austin), 2012",
+        "시각예술학 석사, 이화여자대학교, 2007",
+        "미술사 학사 (이중전공), 이화여자대학교, 2004",
+        "시각디자인 학사(B.F.A.), 이화여자대학교, 2004",
+        "펜실베이니아 주립대 강의 경력 (온라인·대면)",
+        "K\u201312 교육 경험 (미술 및 ELD 영어 발달 교육 포함)",
+        "주요 미술관 교육·프로그램 개발 경력",
+        "토론식 학습 프로그램 및 교육 자료 개발",
+        "비주얼 인쿼리(Visual Inquiry) 및 토론식 교수법 전문성",
+        "한국·미국 교육 환경에서의 다문화 교육 경험",
+        "미술교육 및 미술관 학습 분야 논문 발표",
+        "연구 주제: 비주얼 인쿼리, 미술관 교수법, 문화 감응 학습"
       ]
     },
     pilot: {
-      title: "파일럿 수업 신청 접수 중!",
-      description: "5월 16일 버지니아 주 비엔나에서 열리는 독점 VTS 파일럿 수업에 참여하세요. 제한된 자리만 마련되어 있습니다 - 시각적 사고 전략의 변화의 힘을 경험하는 이 기회를 놓치지 마세요!",
-      cta: "파일럿 수업 신청을 위해 아래 양식을 사용하세요."
+      title: "체험수업 신청 접수 중!",
+      description: "5월 16일 비엔나(타이슨스 코너 몰 근처)에서 열리는 체험수업에 참여하세요. 자리가 한정되어 있습니다 — 미술 작품을 두고 나누는 토론이 아이의 사고력을 어떻게 깨우는지 직접 경험해보세요!",
+      cta: "체험수업 신청을 위해 아래 양식을 사용하세요."
     },
     contact: {
-      title: "파일럿 수업 신청",
+      title: "체험수업 신청",
       info: {
         items: [
           { label: "수업 시간", value: "50분" },
-          { label: "참가비", value: "1인당 $45" },
+          { label: "참가비", value: "1인당 $30" },
           { label: "모집 방식", value: "선착순 모집" }
         ],
         notice: "정원이 한정되어 있어 신청 순서대로 배정되며, 정원이 차면 조기 마감될 수 있습니다."
@@ -268,7 +284,7 @@ export const translations = {
         sessionOption11: '5월 16일 (토) \u00B7 오전 11시',
         sessionOptionEither: '둘 다 가능',
         message: '메시지 (선택)',
-        consent: '파일럿 수업 관련 연락 받는 것에 동의합니다.',
+        consent: '체험수업 관련 연락 받는 것에 동의합니다.',
         submit: '신청하기',
         submitting: '신청 중...',
         namePlaceholder: '이름을 입력하세요',
