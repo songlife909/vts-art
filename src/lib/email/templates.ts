@@ -107,7 +107,7 @@ export function assignmentConfirmedEmail(
     <p style="margin:0;"><strong>When:</strong> Saturday, May 16, 2026 — ${escapeHtml(sessionEN)}</p>
     <p style="margin:8px 0 0;"><strong>Where:</strong> ${venue}</p>
   </div>
-  <p>Please arrive 5 minutes early. Reply to this email if you have any questions.</p>
+  <p>Please arrive 10 minutes early. Reply to this email if you have any questions.</p>
   ${HR}
   <h1 style="color:#0284c7;">수업이 배정되었습니다</h1>
   <p>${escapeHtml(d.parentName)}님, 안녕하세요.</p>
@@ -116,7 +116,7 @@ export function assignmentConfirmedEmail(
     <p style="margin:0;"><strong>일시:</strong> 2026년 5월 16일 (토) ${escapeHtml(sessionKO)}</p>
     <p style="margin:8px 0 0;"><strong>장소:</strong> ${venue}</p>
   </div>
-  <p>당일 5분 전까지 도착해 주세요. 추가 안내가 필요하시면 이 이메일에 답장 부탁드립니다.</p>
+  <p>당일 10분 전까지 도착해 주세요. 추가 안내가 필요하시면 이 이메일에 답장 부탁드립니다.</p>
 </div>`,
     text: `Your class is confirmed.
 
@@ -125,14 +125,14 @@ Hi ${d.parentName}, ${d.childName} is assigned to the following Art-based Litera
 When: Saturday, May 16, 2026 — ${sessionEN}
 Where: ${venue}
 
-Please arrive 5 minutes early.${TXT_HR}수업이 배정되었습니다.
+Please arrive 10 minutes early.${TXT_HR}수업이 배정되었습니다.
 
 ${d.parentName}님, ${d.childName} 어린이의 Art-based Literacy Lab 체험수업이 다음과 같이 배정되었습니다.
 
 일시: 2026년 5월 16일 (토) ${sessionKO}
 장소: ${venue}
 
-당일 5분 전까지 도착해 주세요.`,
+당일 10분 전까지 도착해 주세요.`,
   };
 }
 
